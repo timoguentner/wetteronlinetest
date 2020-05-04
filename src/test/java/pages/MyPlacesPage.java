@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -13,8 +12,6 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 public class MyPlacesPage {
 
 	private AndroidDriver<AndroidElement> driver;
-	
-	public MyPlacesPage() { }
 	
 	public MyPlacesPage(AndroidDriver<AndroidElement> driver) {
 		this.driver = driver;
@@ -32,9 +29,6 @@ public class MyPlacesPage {
 	
 	@AndroidFindBy(id = "action_edit")
 	private AndroidElement editButton;
-	
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@content-desc=\"Ort löschen\"])[2]")
-	private AndroidElement placeDeleteButtonTwo;
 	
 	public void tapLocationsLocateButton() {
 		locationsLocateButton.click();

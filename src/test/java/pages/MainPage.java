@@ -19,10 +19,10 @@ public class MainPage {
 	@AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Menü öffnen\"]")
 	private AndroidElement menuButton;
 	
-	@AndroidFindBy(id = "de.wetteronline.wetterapp:id/label")
+	@AndroidFindBy(id = "label") // XPath
 	private AndroidElement myPlacesButton;
 	
-	@AndroidFindBy(id = "de.wetteronline.wetterapp:id/placemarkName")
+	@AndroidFindBy(id = "placemarkName")
 	private AndroidElement placemarkName;
 	
 	public void tapMenuButton() {
@@ -36,7 +36,4 @@ public class MainPage {
 	public String getPlacemarkName() {
 		return placemarkName.getText();
 	}
-	
-	
-	
 }

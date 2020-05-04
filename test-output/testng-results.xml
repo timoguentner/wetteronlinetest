@@ -1,25 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="67701" started-at="2020-05-01T16:04:33 CEST" finished-at="2020-05-01T16:05:41 CEST">
+  <suite name="Default suite" duration-ms="94722" started-at="2020-05-04T12:14:17 CEST" finished-at="2020-05-04T12:15:52 CEST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="67701" started-at="2020-05-01T16:04:33 CEST" finished-at="2020-05-01T16:05:41 CEST">
+    <test name="Default test" duration-ms="94722" started-at="2020-05-04T12:14:17 CEST" finished-at="2020-05-04T12:15:52 CEST">
       <class name="tests.TestClass">
-        <test-method status="PASS" signature="setup()[pri:0, instance:tests.TestClass@74650e52]" name="setup" is-config="true" duration-ms="7146" started-at="2020-05-01T16:04:33 CEST" finished-at="2020-05-01T16:04:41 CEST">
+        <test-method status="PASS" signature="setup()[pri:0, instance:tests.TestClass@74650e52]" name="setup" is-config="true" duration-ms="6663" started-at="2020-05-04T12:14:17 CEST" finished-at="2020-05-04T12:14:24 CEST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="deleteAllPlaces()[pri:0, instance:tests.TestClass@74650e52]" name="deleteAllPlaces" duration-ms="57361" started-at="2020-05-01T16:04:41 CEST" finished-at="2020-05-01T16:05:38 CEST">
+        <test-method status="PASS" signature="addNewPlace()[pri:0, instance:tests.TestClass@74650e52]" name="addNewPlace" duration-ms="13711" started-at="2020-05-04T12:14:24 CEST" finished-at="2020-05-04T12:14:37 CEST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteAllPlaces -->
-        <test-method status="PASS" signature="resetApp()[pri:0, instance:tests.TestClass@74650e52]" name="resetApp" is-config="true" duration-ms="2691" started-at="2020-05-01T16:05:38 CEST" finished-at="2020-05-01T16:05:41 CEST">
+        </test-method> <!-- addNewPlace -->
+        <test-method status="PASS" signature="resetApp()[pri:0, instance:tests.TestClass@74650e52]" name="resetApp" is-config="true" duration-ms="2193" started-at="2020-05-04T12:14:37 CEST" finished-at="2020-05-04T12:14:40 CEST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- resetApp -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.TestClass@74650e52]" name="tearDown" is-config="true" duration-ms="484" started-at="2020-05-01T16:05:41 CEST" finished-at="2020-05-01T16:05:41 CEST">
+        <test-method status="PASS" signature="deleteAllPlacesFromHistory()[pri:0, instance:tests.TestClass@74650e52]" name="deleteAllPlacesFromHistory" duration-ms="50056" started-at="2020-05-04T12:14:40 CEST" finished-at="2020-05-04T12:15:30 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteAllPlacesFromHistory -->
+        <test-method status="PASS" signature="resetApp()[pri:0, instance:tests.TestClass@74650e52]" name="resetApp" is-config="true" duration-ms="2617" started-at="2020-05-04T12:15:30 CEST" finished-at="2020-05-04T12:15:32 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetApp -->
+        <test-method status="PASS" signature="openSidebar()[pri:0, instance:tests.TestClass@74650e52]" name="openSidebar" duration-ms="6264" started-at="2020-05-04T12:15:32 CEST" finished-at="2020-05-04T12:15:38 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openSidebar -->
+        <test-method status="PASS" signature="resetApp()[pri:0, instance:tests.TestClass@74650e52]" name="resetApp" is-config="true" duration-ms="2238" started-at="2020-05-04T12:15:38 CEST" finished-at="2020-05-04T12:15:41 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetApp -->
+        <test-method status="PASS" signature="tapLocationButtonAndAcceptAlert()[pri:0, instance:tests.TestClass@74650e52]" name="tapLocationButtonAndAcceptAlert" duration-ms="2222" started-at="2020-05-04T12:15:41 CEST" finished-at="2020-05-04T12:15:43 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tapLocationButtonAndAcceptAlert -->
+        <test-method status="PASS" signature="resetApp()[pri:0, instance:tests.TestClass@74650e52]" name="resetApp" is-config="true" duration-ms="2748" started-at="2020-05-04T12:15:43 CEST" finished-at="2020-05-04T12:15:46 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetApp -->
+        <test-method status="PASS" signature="tapLocationButtonAndDismissAlert()[pri:0, instance:tests.TestClass@74650e52]" name="tapLocationButtonAndDismissAlert" duration-ms="3041" started-at="2020-05-04T12:15:46 CEST" finished-at="2020-05-04T12:15:49 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tapLocationButtonAndDismissAlert -->
+        <test-method status="PASS" signature="resetApp()[pri:0, instance:tests.TestClass@74650e52]" name="resetApp" is-config="true" duration-ms="2463" started-at="2020-05-04T12:15:49 CEST" finished-at="2020-05-04T12:15:51 CEST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetApp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.TestClass@74650e52]" name="tearDown" is-config="true" duration-ms="477" started-at="2020-05-04T12:15:51 CEST" finished-at="2020-05-04T12:15:52 CEST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
