@@ -8,44 +8,15 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">0</td><td class="num attn">4</td><td class="num">0</td><td class="num attn">1</td><td class="num">2,681</td><td></td><td></td></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">96,034</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="2">tests.TestClass</td><td><a href="#m0">resetApp</a></td><td rowspan="1">1588831247076</td><td rowspan="1">1</td></tr><tr class="failedeven"><td><a href="#m1">tearDown</a></td><td rowspan="1">1588831247087</td><td rowspan="1">0</td></tr><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">tests.TestClass</td><td><a href="#m2">addNewPlace</a></td><td rowspan="1">1588831246974</td><td rowspan="1">99</td></tr><tr><th colspan="4">Test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="4">tests.TestClass</td><td><a href="#m3">resetApp</a></td><td rowspan="4">1588831247084</td><td rowspan="4">-1588831247084</td></tr><tr class="skippedeven"><td><a href="#m4">resetApp</a></td></tr><tr class="skippedeven"><td><a href="#m5">resetApp</a></td></tr><tr class="skippedeven"><td><a href="#m6">resetApp</a></td></tr><tr><th colspan="4">Test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="4">tests.TestClass</td><td><a href="#m7">deleteAllPlacesFromHistory</a></td><td rowspan="1">1588831247079</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m8">openSidebar</a></td><td rowspan="1">1588831247081</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m9">tapLocationButtonAndAcceptAlert</a></td><td rowspan="1">1588831247083</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m10">tapLocationButtonAndDismissAlert</a></td><td rowspan="1">1588831247085</td><td rowspan="1">0</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="5">tests.TestClass</td><td><a href="#m0">addNewPlace</a></td><td rowspan="1">1588979784353</td><td rowspan="1">13103</td></tr><tr class="passedeven"><td><a href="#m1">deleteAllPlacesFromHistory</a></td><td rowspan="1">1588979800172</td><td rowspan="1">51592</td></tr><tr class="passedeven"><td><a href="#m2">openSidebar</a></td><td rowspan="1">1588979854473</td><td rowspan="1">5382</td></tr><tr class="passedeven"><td><a href="#m3">tapLocationButtonAndAcceptAlert</a></td><td rowspan="1">1588979862554</td><td rowspan="1">2277</td></tr><tr class="passedeven"><td><a href="#m4">tapLocationButtonAndDismissAlert</a></td><td rowspan="1">1588979867493</td><td rowspan="1">3049</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">tests.TestClass#resetApp</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
-	at tests.BaseClass.resetApp(BaseClass.java:41)
-	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">tests.TestClass#tearDown</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
-	at tests.BaseClass.tearDown(BaseClass.java:46)
-... Removed 24 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">tests.TestClass#addNewPlace</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalArgumentException: Can not set io.appium.java_client.android.AndroidElement field pages.MyPlacesPage.locationsLocateButton to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
-	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-	at pages.MyPlacesPage.&lt;init&gt;(MyPlacesPage.java:18)
-	at tests.TestClass.addNewPlace(TestClass.java:55)
-	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">tests.TestClass#resetApp</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">tests.TestClass#resetApp</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">tests.TestClass#resetApp</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">tests.TestClass#resetApp</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">tests.TestClass#deleteAllPlacesFromHistory</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
-	at tests.BaseClass.resetApp(BaseClass.java:41)
-	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">tests.TestClass#openSidebar</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
-	at tests.BaseClass.resetApp(BaseClass.java:41)
-	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">tests.TestClass#tapLocationButtonAndAcceptAlert</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
-	at tests.BaseClass.resetApp(BaseClass.java:41)
-	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">tests.TestClass#tapLocationButtonAndDismissAlert</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException
-	at tests.BaseClass.resetApp(BaseClass.java:41)
-	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">tests.TestClass#addNewPlace</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">tests.TestClass#deleteAllPlacesFromHistory</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">tests.TestClass#openSidebar</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">tests.TestClass#tapLocationButtonAndAcceptAlert</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">tests.TestClass#tapLocationButtonAndDismissAlert</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

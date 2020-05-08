@@ -17,7 +17,7 @@ public class TestClass extends BaseClass {
 		myPlaces.acceptLocationAccessAlert(false);
 		
 		Assert.assertEquals(myPlaces.getSnackbarText(), "Eine Ortung ist ohne die Berechtigung \"Standort\" nicht möglich");
-	
+		
 	}
 	
 	@Test
@@ -34,11 +34,8 @@ public class TestClass extends BaseClass {
 	
 	@Test
 	public void openSidebar() {
-		
-		MyPlacesPage myPlaces = new MyPlacesPage(driver);
-		
-		myPlaces.tapLocationsLocateButton();
-		myPlaces.acceptLocationAccessAlert(true);
+			
+		tapLocationButtonAndAcceptAlert();
 		
 		MainPage mainPage = new MainPage(driver);
 		mainPage.tapMenuButton();
@@ -67,7 +64,7 @@ public class TestClass extends BaseClass {
 	}
 	
 	@Test
-	public void deleteAllPlacesFromHistory() throws InterruptedException {
+	public void deleteAllPlacesFromHistory() {
 		
 		String[] places = {"Berlin", "Düsseldorf", "Bremen", "München", "Köln" };
 		

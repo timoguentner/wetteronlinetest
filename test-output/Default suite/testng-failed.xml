@@ -5,10 +5,11 @@
     <classes>
       <class name="tests.TestClass">
         <methods>
+          <include name="openSidebar"/>
           <include name="tearDown"/>
           <include name="resetApp"/>
           <include name="setup"/>
-          <include name="deleteAllPlaces"/>
+          <include name="tapLocationButtonAndAcceptAlert"/>
         </methods>
       </class> <!-- tests.TestClass -->
     </classes>
