@@ -6,10 +6,13 @@
       <class name="tests.TestClass">
         <methods>
           <include name="openSidebar"/>
-          <include name="tearDown"/>
           <include name="resetApp"/>
+          <include name="tearDown"/>
+          <include name="deleteAllPlacesFromHistory"/>
           <include name="setup"/>
           <include name="tapLocationButtonAndAcceptAlert"/>
+          <include name="addNewPlace"/>
+          <include name="tapLocationButtonAndDismissAlert"/>
         </methods>
       </class> <!-- tests.TestClass -->
     </classes>

@@ -2,7 +2,9 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.internal.BaseClassFinder;
 
+import base.BaseClass;
 import pages.MainPage;
 import pages.MyPlacesPage;
 
