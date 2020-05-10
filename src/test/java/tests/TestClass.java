@@ -10,7 +10,7 @@ import pages.MyPlacesPage;
 
 public class TestClass extends BaseClass {
 
-	@Test
+	@Test(enabled = false)
 	public void tapLocationButtonAndDismissAlert() {
 		
 		MyPlacesPage myPlaces = new MyPlacesPage(driver);
@@ -22,7 +22,7 @@ public class TestClass extends BaseClass {
 		
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void tapLocationButtonAndAcceptAlert() {
 		
 		MyPlacesPage myPlaces = new MyPlacesPage(driver);
@@ -34,7 +34,7 @@ public class TestClass extends BaseClass {
 		
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void openSidebar() {
 			
 		tapLocationButtonAndAcceptAlert();
@@ -46,7 +46,7 @@ public class TestClass extends BaseClass {
 		
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void addNewPlace() {
 		
 		String place = "Köln";
@@ -65,7 +65,7 @@ public class TestClass extends BaseClass {
 		
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void deleteAllPlacesFromHistory() {
 		
 		String[] places = {"Berlin", "Düsseldorf", "Bremen", "München", "Köln" };
@@ -94,4 +94,17 @@ public class TestClass extends BaseClass {
 		// Assert
 		
 	}
+	
+	@Test
+	public void tapEveryDrawerButton() throws InterruptedException {
+		tapLocationButtonAndAcceptAlert();
+		
+		MainPage mainPage = new MainPage(driver);
+		mainPage.tapMenuButton();
+		
+		mainPage.weatherDrawerButton.click();
+		
+		Thread.sleep(5000);
+	}
+	
 }

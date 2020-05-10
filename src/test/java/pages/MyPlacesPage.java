@@ -30,6 +30,9 @@ public class MyPlacesPage {
 	@AndroidFindBy(id = "action_edit")
 	private AndroidElement editButton;
 	
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
+	public AndroidElement pageHeadline;
+	
 	public void tapLocationsLocateButton() {
 		locationsLocateButton.click();
 	}

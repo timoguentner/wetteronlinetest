@@ -17,7 +17,8 @@ import io.appium.java_client.remote.MobileCapabilityType;
 public class BaseClass {
 	
 	public static AndroidDriver<AndroidElement> driver;
-
+	public static boolean resetApp = true;
+	
 	@BeforeTest
 	public void setup() {
 	
@@ -45,7 +46,9 @@ public class BaseClass {
 	
 	@AfterMethod
 	public void resetApp() {
-		driver.resetApp();
+		if(resetApp == true) {
+			driver.resetApp();
+		}
 	}
 	
 	@AfterTest
