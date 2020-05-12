@@ -28,6 +28,9 @@ public class MainPage {
 	@AndroidFindBy(id = "placemarkName")
 	public AndroidElement placemarkName;
 	
+	@AndroidFindBy(id = "nowcastButton")
+	private AndroidElement nowcastButton;
+	
 	public void tapMenuButton() {
 		menuButton.click();
 	}
@@ -39,6 +42,12 @@ public class MainPage {
 	public String getPlacemarkName() {
 		return placemarkName.getText();
 	}
+	
+	public AndroidElement getNowcastButton() {
+		return nowcastButton;
+	}
+	
+	
 	
 	
 	
