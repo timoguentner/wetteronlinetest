@@ -65,7 +65,7 @@ public class TestClass extends BaseClass {
 		
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void deleteAllPlacesFromHistory() {
 		
 		String[] places = {"Berlin", "Düsseldorf", "Bremen", "München", "Köln" };
@@ -87,24 +87,21 @@ public class TestClass extends BaseClass {
 		
 		myPlaces.tapEditButton();
 		
+		
+		
 		for(int i = 0; i < places.length; i++) {
 			myPlaces.deletePlace(2);
+			
+			// Test
+			System.out.println(myPlaces.getElementSize());
+			
 		}
+		
 		
 		// Assert
 		
 	}
 	
-	@Test
-	public void tapEveryDrawerButton() throws InterruptedException {
-		tapLocationButtonAndAcceptAlert();
-		
-		MainPage mainPage = new MainPage(driver);
-		mainPage.tapMenuButton();
-		
-		mainPage.weatherDrawerButton.click();
-		
-		Thread.sleep(5000);
-	}
+	
 	
 }

@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
-
 import pages.MainPage;
 import pages.MyPlacesPage;
 import pages.NavigationDrawerPage;

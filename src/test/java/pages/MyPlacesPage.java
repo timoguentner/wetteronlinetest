@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.List;
+
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -63,4 +66,10 @@ public class MyPlacesPage {
 		AndroidElement placeDeleteButton = driver.findElementByXPath("(//android.widget.ImageView[@content-desc=\"Ort löschen\"])["+position+"]");
 		placeDeleteButton.click();
 	}
+	
+	public int getAmountOfLocationsInHistory() {
+		List<AndroidElement> test = driver.findElementsById("weatherBackground");
+		return test.size();
+	}
+	
 }
