@@ -47,7 +47,7 @@ public class MyPlacesPage {
 	public void acceptLocationAccessAlert(boolean acceptAlert) {
 		if(acceptAlert == true) {
 			driver.switchTo().alert().accept();
-		} else if(acceptAlert == false) {
+		} else {
 			driver.switchTo().alert().dismiss();
 		}
 	}
@@ -68,8 +68,8 @@ public class MyPlacesPage {
 	}
 	
 	public int getAmountOfLocationsInHistory() {
-		List<AndroidElement> test = driver.findElementsById("weatherBackground");
-		return test.size();
+		List<AndroidElement> historyElements = driver.findElementsById("weatherBackground");
+		return historyElements.size() - 1;
 	}
 	
 }

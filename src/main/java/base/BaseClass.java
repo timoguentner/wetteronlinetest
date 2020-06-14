@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.events.EventFiringWebDriverFactory;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseClass {
