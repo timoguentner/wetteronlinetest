@@ -3,6 +3,7 @@ package tests;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidSelectorException;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -10,7 +11,9 @@ import org.testng.annotations.Test;
 
 import base.BaseClass;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidElement;
 import pages.MainPage;
 import pages.MyPlacesPage;
 
@@ -31,62 +34,96 @@ public class MainPageExistenceTest extends BaseClass {
 	
 	@Test
 	public void checkIfHamburgerButtonExists() {
-		Boolean elementExists = driver.findElements(By.xpath("//android.widget.ImageButton[@content-desc=\"Menü öffnen\"]")).size() > 0;
-		Assert.assertTrue(elementExists);
+		this.searchElementByContentDescription("Menü öffnen");
 	}
 	
 	@Test
 	public void checkIfMagnifierExists() {
-		Boolean elementExists = driver.findElements(By.id("de.wetteronline.wetterapp:id/action_search")).size() > 0;
-		Assert.assertTrue(elementExists);
+		this.searchElementById("de.wetteronline.wetterapp:id/action_search");
 	}
 	
 	@Test
 	public void checkIfTemperatureExists() {
-		Boolean elementExists = driver.findElements(By.id("de.wetteronline.wetterapp:id/temperature")).size() > 0;
-		Assert.assertTrue(elementExists);
+		this.searchElementById("de.wetteronline.wetterapp:id/temperature");
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void checkIfSunriseSunsetExists() {
-		Boolean elementOneExists = driver.findElements(By.id("de.wetteronline.wetterapp:id/sunRiseIcon")).size() > 0;
-		Assert.assertTrue(elementOneExists);
-		
-		Boolean elementTwoExists = driver.findElements(By.id("de.wetteronline.wetterapp:id/sunrise")).size() > 0;
-		Assert.assertTrue(elementTwoExists);
-		
-		Boolean elementThreeExists = driver.findElements(By.id("de.wetteronline.wetterapp:id/sunset")).size() > 0;
-		Assert.assertTrue(elementThreeExists);
-	}
-	
-	@Test
-	public void checkIfNowCastExists() {
-		// Optional
+		this.searchElementById("de.wetteronline.wetterapp:id/sunRiseIcon");
+		this.searchElementById("de.wetteronline.wetterapp:id/sunrise");
+		this.searchElementById("de.wetteronline.wetterapp:id/sunset");
 	}
 	
 	@Test
 	public void checkIfHourlyWeatherExists() {
-		Boolean elementExists = driver.findElements(By.id("de.wetteronline.wetterapp:id/blurView")).size() > 0;
-		Assert.assertTrue(elementExists);
-	}
-	
-	@Test
-	public void checkIfSkiingInfoExists() {
-		// Optional
+		this.searchElementById("de.wetteronline.wetterapp:id/hourcast");
 	}
 	
 	@Test
 	public void checkIfAdExists() {
-		Boolean elementExists = driver.findElements(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[1]/android.view.View")).size() > 0;
-		Assert.assertTrue(elementExists);
+		this.searchElementById("de.wetteronline.wetterapp:id/adContainer");
 	}
 	
 	@Test
-	public void checkIfWeatherRadarExists() throws InterruptedException {
-		// TODO: Scroll
+	public void checkIfWeatherRadarExists() {
+		this.searchElementById("de.wetteronline.wetterapp:id/snippet");
 	}
 	
+	@Test
+	public void checkIfWetterOnlineHomeInfoExists() {
+		this.searchElementById("de.wetteronline.wetterapp:id/woHomeAdView");
+	}
 	
+	@Test
+	public void checkIfWeatherPredictionExists() {
+		this.searchElementById("de.wetteronline.wetterapp:id/cardHeader");
+		this.searchElementById("de.wetteronline.wetterapp:id/dayPartsContainer");
+		this.searchElementById("de.wetteronline.wetterapp:id/daysRecyclerView");
+	}
 	
+	@Test
+	public void checkIfTopTopicExists() {
+		this.searchElementById("de.wetteronline.wetterapp:id/streamTopNews");
+		this.searchElementById("de.wetteronline.wetterapp:id/moreLink");
+	}
 	
+	@Test
+	public void checkIfFourteenDayWeatherExists() {
+		this.searchElementById("de.wetteronline.wetterapp:id/cardHeader");
+		this.searchElementById("de.wetteronline.wetterapp:id/longcastTable");
+	}
+	
+	@Test
+	public void checkIfMoreNewsSectionExists() {
+		this.searchElementById("de.wetteronline.wetterapp:id/streamTopNews");
+	}
+	
+	@Test
+	public void checkIfPhotoButtonExists() {
+		this.searchElementById("de.wetteronline.wetterapp:id/photo_teaser_img_icon");
+		this.searchElementById("de.wetteronline.wetterapp:id/photo_teaser_txt_title");
+	}
+	
+	// TODO: Move to helper class
+	private void searchElementById(String resourceId) {
+		try {
+			driver.findElement(MobileBy.AndroidUIAutomator(
+			    "new UiScrollable(new UiSelector().scrollable(true))" +
+			    ".scrollIntoView(new UiSelector().resourceIdMatches(\"" + resourceId + "\"))"));
+		}
+		catch(Exception e) {
+			Assert.fail(e.toString());
+		}
+	}
+	
+	private void searchElementByContentDescription(String contentDescription) {
+		try {
+			driver.findElement(MobileBy.AndroidUIAutomator(
+			    "new UiScrollable(new UiSelector().scrollable(true)).setMaxSearchSwipes(30)" +
+			    ".scrollIntoView(new UiSelector().descriptionMatches(\"" + contentDescription + "\"))"));
+		}
+		catch(Exception e) {
+			Assert.fail(e.toString());
+		}
+	}
 }
