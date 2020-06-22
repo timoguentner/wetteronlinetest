@@ -3,18 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="tests.TestClass">
+      <class name="tests.NavigationDrawerTest">
         <methods>
-          <include name="openSidebar"/>
-          <include name="tearDown"/>
+          <include name="goBack"/>
           <include name="resetApp"/>
+          <include name="tearDown"/>
+          <include name="tapHamburgerButton"/>
           <include name="setup"/>
-          <include name="deleteAllPlacesFromHistory"/>
-          <include name="tapLocationButtonAndAcceptAlert"/>
-          <include name="addNewPlace"/>
-          <include name="tapLocationButtonAndDismissAlert"/>
+          <include name="tapRainRadarDrawerButton"/>
+          <include name="navigateToMainPage"/>
         </methods>
-      </class> <!-- tests.TestClass -->
+      </class> <!-- tests.NavigationDrawerTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

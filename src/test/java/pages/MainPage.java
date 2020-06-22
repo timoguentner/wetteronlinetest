@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -23,7 +26,10 @@ public class MainPage {
 	private AndroidElement myPlacesButton;
 	
 	@AndroidFindBy(id = "placemarkName")
-	private AndroidElement placemarkName;
+	public AndroidElement placemarkName;
+	
+	@AndroidFindBy(id = "nowcastButton")
+	private AndroidElement nowcastButton;
 	
 	public void tapMenuButton() {
 		menuButton.click();
@@ -36,4 +42,13 @@ public class MainPage {
 	public String getPlacemarkName() {
 		return placemarkName.getText();
 	}
+	
+	public AndroidElement getNowcastButton() {
+		return nowcastButton;
+	}
+	
+	
+	
+	
+	
 }

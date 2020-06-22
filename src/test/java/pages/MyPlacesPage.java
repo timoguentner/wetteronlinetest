@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.List;
+
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -30,6 +33,9 @@ public class MyPlacesPage {
 	@AndroidFindBy(id = "action_edit")
 	private AndroidElement editButton;
 	
+	@AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
+	public AndroidElement pageHeadline;
+	
 	public void tapLocationsLocateButton() {
 		locationsLocateButton.click();
 	}
@@ -41,7 +47,7 @@ public class MyPlacesPage {
 	public void acceptLocationAccessAlert(boolean acceptAlert) {
 		if(acceptAlert == true) {
 			driver.switchTo().alert().accept();
-		} else if(acceptAlert == false) {
+		} else {
 			driver.switchTo().alert().dismiss();
 		}
 	}
@@ -60,4 +66,10 @@ public class MyPlacesPage {
 		AndroidElement placeDeleteButton = driver.findElementByXPath("(//android.widget.ImageView[@content-desc=\"Ort löschen\"])["+position+"]");
 		placeDeleteButton.click();
 	}
+	
+	public int getAmountOfLocationsInHistory() {
+		List<AndroidElement> historyElements = driver.findElementsById("weatherBackground");
+		return historyElements.size() - 1;
+	}
+	
 }
