@@ -32,73 +32,73 @@ public class MainPageExistenceTest extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
-	@Test
+	@Test(priority = 0)
 	public void checkIfHamburgerButtonExists() {
 		this.searchElementByContentDescription("Menü öffnen");
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void checkIfMagnifierExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/action_search");
 	}
 	
-	@Test
+	@Test(priority = 2)
 	public void checkIfTemperatureExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/temperature");
 	}
 	
-	@Test(enabled = false)
+	@Test(priority = 3)
 	public void checkIfSunriseSunsetExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/sunRiseIcon");
 		this.searchElementById("de.wetteronline.wetterapp:id/sunrise");
 		this.searchElementById("de.wetteronline.wetterapp:id/sunset");
 	}
 	
-	@Test
+	@Test(priority = 4)
 	public void checkIfHourlyWeatherExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/hourcast");
 	}
 	
-	@Test
+	@Test(priority = 5)
 	public void checkIfAdExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/adContainer");
 	}
 	
-	@Test
+	@Test(priority = 6)
 	public void checkIfWeatherRadarExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/snippet");
 	}
 	
-	@Test
+	@Test(priority = 7)
 	public void checkIfWetterOnlineHomeInfoExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/woHomeAdView");
 	}
 	
-	@Test
+	@Test(priority = 8)
 	public void checkIfWeatherPredictionExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/cardHeader");
 		this.searchElementById("de.wetteronline.wetterapp:id/dayPartsContainer");
 		this.searchElementById("de.wetteronline.wetterapp:id/daysRecyclerView");
 	}
 	
-	@Test
+	@Test(priority = 9)
 	public void checkIfTopTopicExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/streamTopNews");
 		this.searchElementById("de.wetteronline.wetterapp:id/moreLink");
 	}
 	
-	@Test
+	@Test(priority = 10)
 	public void checkIfFourteenDayWeatherExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/cardHeader");
 		this.searchElementById("de.wetteronline.wetterapp:id/longcastTable");
 	}
 	
-	@Test
+	@Test(priority = 11)
 	public void checkIfMoreNewsSectionExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/streamTopNews");
 	}
 	
-	@Test
+	@Test(priority = 12)
 	public void checkIfPhotoButtonExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/photo_teaser_img_icon");
 		this.searchElementById("de.wetteronline.wetterapp:id/photo_teaser_txt_title");
