@@ -1,5 +1,6 @@
 package tests;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -10,6 +11,7 @@ import org.testng.internal.BaseClassFinder;
 import base.BaseClass;
 import pages.MainPage;
 import pages.MyPlacesPage;
+import utilities.MySQLHelper;
 
 public class MyLocationsTest extends BaseClass {
 
@@ -81,5 +83,36 @@ public class MyLocationsTest extends BaseClass {
 			myPlaces.deletePlace(2);
 			
 		}	
+	}
+	
+	@Test
+	public void deleteAllRandomLocationsFromHistory() {
+		
+		MySQLHelper mySQLHelper = new MySQLHelper();
+		
+		ArrayList<String> locations = mySQLHelper.getFourRandomLocations();
+		
+		mainPage = new MainPage(driver);
+		mainPage.tapMenuButton();
+		mainPage.tapMyPlacesButton();
+		
+		for(int i = 0; i < locations.size(); i++) {
+			myPlaces.searchForPlace(locations.get(i));
+			
+			mainPage.tapMenuButton();
+			mainPage.tapMyPlacesButton();
+		}
+		
+		myPlaces.tapEditButton();
+		
+		for(int i = locations.size(); i != 0; i--) {
+			
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+				
+			Assert.assertEquals(myPlaces.getAmountOfLocationsInHistory(), i);
+			
+			myPlaces.deletePlace(2);
+		
+		}
 	}
 }
