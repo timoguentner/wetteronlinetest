@@ -15,6 +15,9 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.events.EventFiringWebDriverFactory;
 import io.appium.java_client.remote.MobileCapabilityType;
 
+import io.appium.java_client.events.EventFiringWebDriverFactory;
+import io.appium.java_client.events.api.Listener;
+
 public class BaseClass {
 	
 	public static AndroidDriver<AndroidElement> driver;
@@ -39,6 +42,7 @@ public class BaseClass {
 			capabilities.setCapability("appActivity", properties.get("AppActivity"));
 			
 			driver = new AndroidDriver<AndroidElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+			driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
 			
 		} catch (Exception e) {
 			System.out.println(e);

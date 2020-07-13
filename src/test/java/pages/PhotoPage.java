@@ -19,4 +19,19 @@ public class PhotoPage {
 	@AndroidFindBy(id = "de.wetteronline.wetterapp:id/cameraPermissionInfo")
 	public AndroidElement cameraPermissinInfo;
 	
+	@AndroidFindBy(id = "com.android.camera2:id/shutter_button")
+	public AndroidElement shutterButton;
+	
+	@AndroidFindBy(id = "com.android.camera2:id/done_button")
+	public AndroidElement cameraDoneButton;
+	
+	@AndroidFindBy(id = "de.wetteronline.wetterapp:id/cityView")
+	public AndroidElement cityView;
+	
+	@AndroidFindBy(id = "de.wetteronline.wetterapp:id/currentCastView")
+	public AndroidElement currentCastView;
+	
+	@AndroidFindBy(id = "de.wetteronline.wetterapp:id/timeView")
+	public AndroidElement timeView;
+	
 }
