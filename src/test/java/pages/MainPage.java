@@ -31,6 +31,9 @@ public class MainPage {
 	@AndroidFindBy(id = "nowcastButton")
 	private AndroidElement nowcastButton;
 	
+	@AndroidFindBy(id = "de.wetteronline.wetterapp:id/temperature")
+	private AndroidElement temperature;
+	
 	public void tapMenuButton() {
 		menuButton.click();
 	}
@@ -45,6 +48,10 @@ public class MainPage {
 	
 	public AndroidElement getNowcastButton() {
 		return nowcastButton;
+	}
+	
+	public String getTemperature() {
+		return temperature.getText();
 	}
 	
 	

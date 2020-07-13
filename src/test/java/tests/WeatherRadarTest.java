@@ -63,7 +63,7 @@ public class WeatherRadarTest extends BaseClass {
 		
 		weatherRadar = new WeatherRadarPage(driver);
 		weatherRadar.playPauseButton.click();
-		
+				
 		String currentClockTime = weatherRadar.getClockTime();
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
