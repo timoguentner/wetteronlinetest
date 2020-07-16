@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseClassFinder;
 
 import base.BaseClass;
+import dataproviders.LocationsProvider;
 import pages.MainPage;
 import pages.MyPlacesPage;
 import utilities.MySQLHelper;
@@ -20,6 +21,8 @@ public class MyLocationsTest extends BaseClass {
 	
 	@BeforeClass
 	public void navigateToMainPage() {
+		
+		
 		
 		myPlaces = new MyPlacesPage(driver);
 		myPlaces.tapLocationsLocateButton();
@@ -85,7 +88,22 @@ public class MyLocationsTest extends BaseClass {
 		}	
 	}
 	
-	@Test
+	@Test(dataProvider="locations", dataProviderClass=LocationsProvider.class)
+	public void addNewLocation2(String location) {
+		
+		BaseClass.resetApp = false;
+		
+		mainPage = new MainPage(driver);
+		mainPage.tapMenuButton();
+		mainPage.tapMyPlacesButton();
+		
+		myPlaces.searchForPlace(location);
+		
+		Assert.assertEquals(mainPage.getPlacemarkName(), location);
+		
+	}
+	
+	@Test(enabled = false)
 	public void deleteAllRandomLocationsFromHistory() {
 		
 		MySQLHelper mySQLHelper = new MySQLHelper();

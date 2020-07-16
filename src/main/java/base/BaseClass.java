@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.Properties;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -42,7 +43,7 @@ public class BaseClass {
 			capabilities.setCapability("appActivity", properties.get("AppActivity"));
 			
 			driver = new AndroidDriver<AndroidElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-			driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
+			//driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver, new ElementListener());
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -50,11 +51,18 @@ public class BaseClass {
 	}
 	
 	@AfterMethod
-	public void resetApp() {
+	public void resetAppAfterEachMethod() {
 		if(resetApp == true) {
 			driver.resetApp();
 		}
 	}
+	
+	
+	@AfterClass
+	public void resetAppAfterEachClass() {
+		driver.resetApp();
+	}
+	
 	
 	@AfterTest
 	public void tearDown() {

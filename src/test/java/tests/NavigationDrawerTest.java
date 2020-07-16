@@ -17,9 +17,9 @@ import pages.WeatherRadarPage;
 
 public class NavigationDrawerTest extends BaseClass {
 	
-	static MainPage mainPage;
-	static MyPlacesPage myPlaces;
-	static NavigationDrawerPage navigationDrawer;
+	private MainPage mainPage;
+	private MyPlacesPage myPlaces;
+	private NavigationDrawerPage navigationDrawer;
 	
 	@BeforeClass
 	public void navigateToMainPage() {
@@ -42,8 +42,8 @@ public class NavigationDrawerTest extends BaseClass {
 		
 	}
 	
-	@Test(enabled = false)
-	public void tapMyPlacesDrawerButton() {
+	@Test
+	public void tapMyLocationsDrawerButton() {
 		
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.myPlacesDrawerButton.click();
@@ -52,7 +52,7 @@ public class NavigationDrawerTest extends BaseClass {
 		
 	}
 	
-	@Test(enabled = false)
+	@Test
 	public void tapWeatherDrawerButton() throws InterruptedException {
 		
 		navigationDrawer = new NavigationDrawerPage(driver);
@@ -63,7 +63,7 @@ public class NavigationDrawerTest extends BaseClass {
 		Assert.assertEquals(mainPage.placemarkName.isDisplayed(), true);
 	}
 	
-	@Test(enabled = false)
+	@Test
 	public void tapWeatherRadarDrawerButton() {
 		
 		navigationDrawer = new NavigationDrawerPage(driver);
@@ -87,8 +87,14 @@ public class NavigationDrawerTest extends BaseClass {
 		
 	}
 	
+	@Test(enabled = false)
+	public void tapWeatherNewsDrawerButton() { }
+	
+	@Test(enabled = false)
+	public void tapPhotoDrawerButton() { }
+	
 	@AfterMethod
-	public void goBack() {
+	private void goBack() {
 		driver.navigate().back();
 	}
 	
