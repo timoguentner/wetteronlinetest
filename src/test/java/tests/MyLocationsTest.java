@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseClassFinder;
 
@@ -19,10 +20,10 @@ public class MyLocationsTest extends BaseClass {
 	private MyPlacesPage myPlaces;
 	private MainPage mainPage;
 	
-	@BeforeClass
+	@BeforeMethod
 	public void navigateToMainPage() {
 		
-		
+		BaseClass.resetApp = true;
 		
 		myPlaces = new MyPlacesPage(driver);
 		myPlaces.tapLocationsLocateButton();
@@ -30,21 +31,7 @@ public class MyLocationsTest extends BaseClass {
 		
 	}
 	
-	/*
 	@Test(enabled = true)
-	public void tapLocationButtonAndDismissAlert() {
-		
-		myPlaces = new MyPlacesPage(driver);
-		
-		myPlaces.tapLocationsLocateButton();
-		myPlaces.acceptLocationAccessAlert(false);
-		
-		Assert.assertEquals(myPlaces.getSnackbarText(), "Eine Ortung ist ohne die Berechtigung \"Standort\" nicht möglich");
-		
-	}
-	*/
-	
-	@Test(enabled = false)
 	public void addNewLocation() {
 		
 		String place = "Köln";
@@ -59,7 +46,7 @@ public class MyLocationsTest extends BaseClass {
 		
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void deleteAllPlacesFromHistory() {
 		
 		String[] places = {"Berlin", "Düsseldorf", "Bremen", "München" };
@@ -88,7 +75,7 @@ public class MyLocationsTest extends BaseClass {
 		}	
 	}
 	
-	@Test(dataProvider="locations", dataProviderClass=LocationsProvider.class)
+	@Test(dataProvider="locations", dataProviderClass=LocationsProvider.class, enabled = false)
 	public void addNewLocation2(String location) {
 		
 		BaseClass.resetApp = false;
@@ -103,7 +90,7 @@ public class MyLocationsTest extends BaseClass {
 		
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void deleteAllRandomLocationsFromHistory() {
 		
 		MySQLHelper mySQLHelper = new MySQLHelper();

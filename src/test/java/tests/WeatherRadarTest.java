@@ -46,6 +46,10 @@ public class WeatherRadarTest extends BaseClass {
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.weatherRadarDrawerButton.click();
 		
+		// Close the annoying ad
+		weatherRadar = new WeatherRadarPage(driver);
+		weatherRadar.adCloseButton.click();
+		
 		// Wait for the clock to appear
 		Thread.sleep(3000);
 	}
@@ -53,10 +57,7 @@ public class WeatherRadarTest extends BaseClass {
 	
 	@Test(enabled = true)
 	public void fifteenMinPredictionTest() {
-		
-		// Temporary
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
+				
 		// Get current clock time
 		weatherRadar = new WeatherRadarPage(driver);
 		weatherRadar.fifteenMinSwitcher.click();
