@@ -17,13 +17,12 @@ import pages.WeatherRadarPage;
 
 public class NavigationDrawerTest extends BaseClass {
 	
-	static MainPage mainPage;
-	static MyPlacesPage myPlaces;
-	static NavigationDrawerPage navigationDrawer;
+	private MainPage mainPage;
+	private MyPlacesPage myPlaces;
+	private NavigationDrawerPage navigationDrawer;
 	
 	@BeforeClass
 	public void navigateToMainPage() {
-		
 		BaseClass.resetApp = false;
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -31,30 +30,24 @@ public class NavigationDrawerTest extends BaseClass {
 		myPlaces = new MyPlacesPage(driver);
 		myPlaces.tapLocationsLocateButton();
 		myPlaces.acceptLocationAccessAlert(true);
-		
 	}
 	
 	@BeforeMethod
 	public void tapHamburgerButton() {
-		
 		mainPage = new MainPage(driver);
 		mainPage.tapMenuButton();
-		
 	}
 	
-	@Test(enabled = false)
-	public void tapMyPlacesDrawerButton() {
-		
+	@Test
+	public void tapMyLocationsDrawerButton() {
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.myPlacesDrawerButton.click();
 		
 		Assert.assertEquals(myPlaces.pageHeadline.getText(), "Meine Orte");
-		
 	}
 	
-	@Test(enabled = false)
-	public void tapWeatherDrawerButton() throws InterruptedException {
-		
+	@Test
+	public void tapWeatherDrawerButton() {
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.weatherDrawerButton.click();
 		
@@ -63,33 +56,34 @@ public class NavigationDrawerTest extends BaseClass {
 		Assert.assertEquals(mainPage.placemarkName.isDisplayed(), true);
 	}
 	
-	@Test(enabled = false)
+	@Test
 	public void tapWeatherRadarDrawerButton() {
-		
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.weatherRadarDrawerButton.click();
 		
 		WeatherRadarPage weatherRadar = new WeatherRadarPage(driver);
 		
 		Assert.assertEquals(weatherRadar.pageHeadline.getText(), "WetterRadar");
-		
 	}
 	
 	@Test
 	public void tapRainRadarDrawerButton() {
-		
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.rainRadarDrawerButton.click();
 		
 		RainRadarPage rainRadar = new RainRadarPage(driver);
 		
 		Assert.assertEquals(rainRadar.pageHeadline.getText(), "RegenRadar");
-		
 	}
+	
+	@Test(enabled = false)
+	public void tapWeatherNewsDrawerButton() { }
+	
+	@Test(enabled = false)
+	public void tapPhotoDrawerButton() { }
 	
 	@AfterMethod
-	public void goBack() {
+	private void goBack() {
 		driver.navigate().back();
 	}
-	
 }

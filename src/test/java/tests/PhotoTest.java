@@ -3,7 +3,7 @@ package tests;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
@@ -23,8 +23,12 @@ public class PhotoTest extends BaseClass {
 	private String temperature;
 	private String deviceTime;
 	
-	@BeforeClass
+	@BeforeMethod
 	public void navigateToMainPage() {
+		
+		BaseClass.resetApp = true;
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		// Tap on the GPS button and allow location access
 		myPlaces = new MyPlacesPage(driver);
@@ -33,7 +37,7 @@ public class PhotoTest extends BaseClass {
 		
 		mainPage = new MainPage(driver);
 	
-		// Read out the relevant values for checking the photo function
+		// Set variables
 		placemarkName = mainPage.getPlacemarkName();
 		temperature   = mainPage.getTemperature();
 		deviceTime    = driver.getDeviceTime().substring(11, 16);
@@ -46,7 +50,7 @@ public class PhotoTest extends BaseClass {
 		navigationDrawer.photoDrawerButton.click();
 	}
 	
-	@Test(enabled = false)
+	@Test
 	public void denyCameraPermission() {
 		
 		// Deny camera access
@@ -55,14 +59,10 @@ public class PhotoTest extends BaseClass {
 		// Check that the correct error message is displayed
 		photoPage = new PhotoPage(driver);
 		Assert.assertEquals(photoPage.cameraPermissinInfo.getText(), "Für die Foto-Funktion wird die Berechtigung \"Kamera\" benötigt");
-	
 	}
 	
-	@Test(enabled = true)
+	@Test
 	public void takePicture() {
-		
-		// Set implicit wait to 10 seconds
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		// Allow camera access
 		driver.switchTo().alert().accept();
@@ -71,11 +71,10 @@ public class PhotoTest extends BaseClass {
 		photoPage = new PhotoPage(driver);
 		photoPage.shutterButton.click();
 		photoPage.cameraDoneButton.click();
-		 
-		// Asserts
-		Assert.assertEquals(photoPage.cityView.getText(), this.placemarkName);
-		Assert.assertEquals(photoPage.timeView.getText(), this.deviceTime);
-		Assert.assertTrue(photoPage.currentCastView.getText().contains(this.temperature));
 		
+		// Asserts
+		Assert.assertEquals(photoPage.cityView.getText(), placemarkName);
+		Assert.assertEquals(photoPage.timeView.getText(), deviceTime);
+		Assert.assertTrue(photoPage.currentCastView.getText().contains(temperature));
 	}
 }

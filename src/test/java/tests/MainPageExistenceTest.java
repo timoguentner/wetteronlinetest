@@ -2,19 +2,12 @@ package tests;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.InvalidSelectorException;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidElement;
-import pages.MainPage;
 import pages.MyPlacesPage;
 
 public class MainPageExistenceTest extends BaseClass {
@@ -81,24 +74,24 @@ public class MainPageExistenceTest extends BaseClass {
 		this.searchElementById("de.wetteronline.wetterapp:id/daysRecyclerView");
 	}
 	
-	@Test(priority = 9)
+	@Test(enabled = false)
 	public void checkIfTopTopicExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/streamTopNews");
 		this.searchElementById("de.wetteronline.wetterapp:id/moreLink");
 	}
 	
-	@Test(priority = 10)
+	@Test(priority = 9)
 	public void checkIfFourteenDayWeatherExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/cardHeader");
 		this.searchElementById("de.wetteronline.wetterapp:id/longcastTable");
 	}
 	
-	@Test(priority = 11)
+	@Test(enabled = false)
 	public void checkIfMoreNewsSectionExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/streamTopNews");
 	}
 	
-	@Test(priority = 12)
+	@Test(priority = 10)
 	public void checkIfPhotoButtonExists() {
 		this.searchElementById("de.wetteronline.wetterapp:id/photo_teaser_img_icon");
 		this.searchElementById("de.wetteronline.wetterapp:id/photo_teaser_txt_title");
@@ -108,7 +101,7 @@ public class MainPageExistenceTest extends BaseClass {
 	private void searchElementById(String resourceId) {
 		try {
 			driver.findElement(MobileBy.AndroidUIAutomator(
-			    "new UiScrollable(new UiSelector().scrollable(true))" +
+			    "new UiScrollable(new UiSelector().scrollable(true)).setMaxSearchSwipes(30)" +
 			    ".scrollIntoView(new UiSelector().resourceIdMatches(\"" + resourceId + "\"))"));
 		}
 		catch(Exception e) {
