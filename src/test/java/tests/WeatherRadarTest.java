@@ -46,10 +46,6 @@ public class WeatherRadarTest extends BaseClass {
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.weatherRadarDrawerButton.click();
 		
-		// Close the annoying ad
-		weatherRadar = new WeatherRadarPage(driver);
-		weatherRadar.adCloseButton.click();
-		
 		// Wait for the clock to appear
 		Thread.sleep(3000);
 	}
@@ -75,7 +71,7 @@ public class WeatherRadarTest extends BaseClass {
 	    }
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void fiveMinPredictionTest() {
 		
 		weatherRadar = new WeatherRadarPage(driver);
@@ -95,7 +91,7 @@ public class WeatherRadarTest extends BaseClass {
 		
 	}
 	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void switchToRainRadar() {
 		
 		// Switch to RainRadar
@@ -121,6 +117,4 @@ public class WeatherRadarTest extends BaseClass {
 	    
 	    return expectedTimes;
 	}
-	
-	
 }

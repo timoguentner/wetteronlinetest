@@ -37,11 +37,10 @@ public class PhotoTest extends BaseClass {
 		
 		mainPage = new MainPage(driver);
 	
-		
+		// Set variables
 		placemarkName = mainPage.getPlacemarkName();
 		temperature   = mainPage.getTemperature();
 		deviceTime    = driver.getDeviceTime().substring(11, 16);
-		
 		
 		// Tap on the menu button in the navigation drawer
 		mainPage.tapMenuButton();
@@ -54,42 +53,28 @@ public class PhotoTest extends BaseClass {
 	@Test
 	public void denyCameraPermission() {
 		
-		
-		
 		// Deny camera access
 		driver.switchTo().alert().dismiss();
 		
 		// Check that the correct error message is displayed
 		photoPage = new PhotoPage(driver);
 		Assert.assertEquals(photoPage.cameraPermissinInfo.getText(), "Für die Foto-Funktion wird die Berechtigung \"Kamera\" benötigt");
-	
 	}
 	
 	@Test
 	public void takePicture() {
 		
-		
-		
-		// Set implicit wait to 10 seconds
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
 		// Allow camera access
 		driver.switchTo().alert().accept();
-		
 		
 		// Tap on the shutter button to take a picture
 		photoPage = new PhotoPage(driver);
 		photoPage.shutterButton.click();
 		photoPage.cameraDoneButton.click();
 		
-		
-		
-		
-		 
 		// Asserts
 		Assert.assertEquals(photoPage.cityView.getText(), placemarkName);
 		Assert.assertEquals(photoPage.timeView.getText(), deviceTime);
 		Assert.assertTrue(photoPage.currentCastView.getText().contains(temperature));
-		
 	}
 }

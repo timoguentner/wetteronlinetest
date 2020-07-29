@@ -23,7 +23,6 @@ public class NavigationDrawerTest extends BaseClass {
 	
 	@BeforeClass
 	public void navigateToMainPage() {
-		
 		BaseClass.resetApp = false;
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -31,30 +30,24 @@ public class NavigationDrawerTest extends BaseClass {
 		myPlaces = new MyPlacesPage(driver);
 		myPlaces.tapLocationsLocateButton();
 		myPlaces.acceptLocationAccessAlert(true);
-		
 	}
 	
 	@BeforeMethod
 	public void tapHamburgerButton() {
-		
 		mainPage = new MainPage(driver);
 		mainPage.tapMenuButton();
-		
 	}
 	
 	@Test
 	public void tapMyLocationsDrawerButton() {
-		
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.myPlacesDrawerButton.click();
 		
 		Assert.assertEquals(myPlaces.pageHeadline.getText(), "Meine Orte");
-		
 	}
 	
 	@Test
-	public void tapWeatherDrawerButton() throws InterruptedException {
-		
+	public void tapWeatherDrawerButton() {
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.weatherDrawerButton.click();
 		
@@ -65,26 +58,22 @@ public class NavigationDrawerTest extends BaseClass {
 	
 	@Test
 	public void tapWeatherRadarDrawerButton() {
-		
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.weatherRadarDrawerButton.click();
 		
 		WeatherRadarPage weatherRadar = new WeatherRadarPage(driver);
 		
 		Assert.assertEquals(weatherRadar.pageHeadline.getText(), "WetterRadar");
-		
 	}
 	
 	@Test
 	public void tapRainRadarDrawerButton() {
-		
 		navigationDrawer = new NavigationDrawerPage(driver);
 		navigationDrawer.rainRadarDrawerButton.click();
 		
 		RainRadarPage rainRadar = new RainRadarPage(driver);
 		
 		Assert.assertEquals(rainRadar.pageHeadline.getText(), "RegenRadar");
-		
 	}
 	
 	@Test(enabled = false)
@@ -97,5 +86,4 @@ public class NavigationDrawerTest extends BaseClass {
 	private void goBack() {
 		driver.navigate().back();
 	}
-	
 }

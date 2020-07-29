@@ -8,7 +8,6 @@
     <classes>
       <class name="tests.WeatherRadarTest">
         <methods>
-          <include name="fiveMinPredictionTest"/>
           <include name="tearDown"/>
           <include name="navigateToWeatherRadar"/>
           <include name="fifteenMinPredictionTest"/>
@@ -17,6 +16,17 @@
           <include name="resetAppAfterEachMethod"/>
         </methods>
       </class> <!-- tests.WeatherRadarTest -->
+      <class name="tests.MainPageExistenceTest">
+        <methods>
+          <include name="checkIfAdExists"/>
+          <include name="checkIfWetterOnlineHomeInfoExists"/>
+          <include name="tearDown"/>
+          <include name="navigateToMainPage"/>
+          <include name="resetAppAfterEachClass"/>
+          <include name="setup"/>
+          <include name="resetAppAfterEachMethod"/>
+        </methods>
+      </class> <!-- tests.MainPageExistenceTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -5,14 +5,14 @@
 		<listener class-name="resources.ExtentReporterNG" />
 	</listeners>
 
-
   <test thread-count="1" name="Test">
     <classes>
       <class name="tests.MainPageExistenceTest" />	
       <class name="tests.PhotoTest" />
       <class name="tests.NavigationDrawerTest" />
       <class name="tests.WeatherRadarTest" />
-    	
+      <class name="tests.NinetyMinWeatherTest" />
+      <class name="tests.MyLocationsTest" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
